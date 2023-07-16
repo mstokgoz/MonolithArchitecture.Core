@@ -9,7 +9,7 @@ namespace ClassicArchitecture.Core.Utilities.Results
     public interface IResult
     {
         RESULTTYPE Success { get; }
-        string Message { get; }
+        string? Message { get; }
 
     }
 }
