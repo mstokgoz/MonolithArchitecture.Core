@@ -1,9 +1,11 @@
 ﻿using ClassicArchitecture.Core.CrossCuttingConcerns.Logging.Elasticsearch;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
 using Serilog;
 using Serilog.Sinks.Elasticsearch;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,9 +30,18 @@ namespace ClassicArchitecture.Core.CrossCuttingConcerns.Logging
                 .Enrich.WithEnvironmentUserName()
                 .Enrich.WithClientIp()
                 .Enrich.WithProperty("AppName", appName)
+                .Enrich.WithCorrelationId(CorrelationId)
                 .MinimumLevel.Information()
                 .MinimumLevel.Override("Microsoft", Serilog.Events.LogEventLevel.Warning)
                 .MinimumLevel.Override("System", Serilog.Events.LogEventLevel.Warning));
+
+            builder.Services.AddHttpContextAccessor();
         }
+
+        public static string? CorrelationId
+        {
+            get { return (string?)Activity.Current?.GetCustomProperty("CorrelationId"); }
+        }
+        
     }
 }

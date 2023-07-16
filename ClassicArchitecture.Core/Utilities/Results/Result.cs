@@ -13,7 +13,7 @@ namespace ClassicArchitecture.Core.Utilities.Results
 
         public string? Message { get; }
 
-        public Result(RESULTTYPE success, string message) : this(success)
+        public Result(RESULTTYPE success, string? message) : this(success)
         {
             this.Message = message;
         }

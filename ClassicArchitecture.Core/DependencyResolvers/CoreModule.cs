@@ -1,4 +1,6 @@
-﻿using ClassicArchitecture.Core.Utilities.IoC;
+﻿using ClassicArchitecture.Core.CrossCuttingConcerns.Caching;
+using ClassicArchitecture.Core.CrossCuttingConcerns.Caching.Microsoft;
+using ClassicArchitecture.Core.Utilities.IoC;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using System;

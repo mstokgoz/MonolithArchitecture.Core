@@ -8,7 +8,7 @@ namespace ClassicArchitecture.Core.Utilities.Results
 {
     public class WarningResult : Result
     {
-        public WarningResult(string message) : base(RESULTTYPE.WARNING, message)
+        public WarningResult(string? message) : base(RESULTTYPE.WARNING, message)
         {
 
         }
