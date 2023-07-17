@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClassicArchitecture.Core.Business.BusinessRules
+namespace ClassicArchitecture.Core.Business
 {
     public static class BusinessRules
     {
@@ -17,10 +17,11 @@ namespace ClassicArchitecture.Core.Business.BusinessRules
             {
                 var type = result.GetType();
 
-                switch(type)
+                switch (type)
                 {
                     case not null when type == typeof(ErrorResult):
                         return result;
+
                     case not null when type == typeof(WarningResult):
                         warningOrSuccessResult = new WarningResult(result.Message);
                         break;
