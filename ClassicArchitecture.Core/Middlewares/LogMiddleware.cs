@@ -25,7 +25,6 @@ namespace ClassicArchitecture.Core.Middlewares
             using (Serilog.Context.LogContext.PushProperty("CorrelationId", correlationId))
                 await _next(context);
         }
-
         private async Task<string> CorrelationProcess(HttpContext context)
         {
             string correlationId = "";
