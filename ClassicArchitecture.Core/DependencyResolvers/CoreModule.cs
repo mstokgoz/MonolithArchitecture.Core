@@ -18,7 +18,7 @@ namespace ClassicArchitecture.Core.DependencyResolvers
         {
             services.AddMemoryCache();
             services.AddSingleton<ICacheManager, MemoryCacheManager>();
-            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped<IHttpContextAccessor, HttpContextAccessor>();
             services.AddSingleton<Stopwatch>();
         }
     }
