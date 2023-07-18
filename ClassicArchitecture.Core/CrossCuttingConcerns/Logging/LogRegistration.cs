@@ -20,7 +20,7 @@ namespace ClassicArchitecture.Core.CrossCuttingConcerns.Logging
                 new ElasticsearchSinkOptions(node: new Uri(ElasticEnvironmentManager.ElasticUrl))
                 {
                     AutoRegisterTemplate = true,
-                    IndexFormat = ElasticEnvironmentManager.IndexFormat,
+                    IndexFormat = ElasticEnvironmentManager.IndexFormat, //"project-kubernetes-kafka"
                     ModifyConnectionSettings = x => x.BasicAuthentication(ElasticEnvironmentManager.ElasticUser, ElasticEnvironmentManager.ElasticPassword)
                     .ServerCertificateValidationCallback((o, cer, arg3, arg4) => { return true; })
                 }
